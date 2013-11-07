@@ -106,8 +106,8 @@ L.Point.prototype = {
 };
 
 L.point = function (x, y, round) {
-	if (x instanceof L.Point) {
-		return x;
+	if (x.x !== undefined && x.y !== undefined) {
+		return new L.Point(x.x, x.y);
 	}
 	if (L.Util.isArray(x)) {
 		return new L.Point(x[0], x[1]);
